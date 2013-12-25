@@ -1,0 +1,33 @@
+{% extends 'base_product_list.html' %}
+{#{% extends 'base.html' %}#}
+
+
+{% block title_products %}
+    <strong style="font-size: 165%">liste {{ cat }} haye {{ sub_cat }}</strong>
+{% endblock %}
+
+{% block product_items %}
+    {% for p in products %}
+
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <img src="http://placehold.it/320x150" alt="">
+
+                <div class="caption">
+                    <h4 class="pull-left">100 تومان</h4>
+                    <h4><a href="{% url 'product_details' %}">محصول خوب</a></h4>
+                </div>
+                <div style="color: #ffff00" class="ratings text-center">
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+{% endblock %}
