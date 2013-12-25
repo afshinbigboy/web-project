@@ -1,0 +1,242 @@
+#body {
+	background: #ecf0f1; color: #999;
+	font-family:'B roya',tahoma;
+	width:70%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+}
+
+
+.myMenu{
+	cursor : pointer;
+}
+
+.myMenu:hover{
+	background-color: rgba(0, 0, 0, 0.1)
+}
+
+#wrapper{
+	position:absolute;	
+	width:100%;
+	float:left;
+}
+
+aside{
+	position:absolute;
+	width:14%;
+	float:left;
+}
+
+article{
+	position:absolute;
+	width:85%;
+	height:300px;
+	float:left;
+	margin-left:0px;
+	z-index:-5;
+}
+
+#mycontent{
+	position:absolute;
+	width:70%;
+	margin-top:400px;
+}
+
+.myspan{
+	margin-right:auto;
+	margin-left:17%;
+	float:left;	
+}
+
+#mymiddle{
+	position:relative;
+	margin-bottom:50px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#mybottom{
+	position:relative;
+	margin-top:22.5%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.myseg{
+	float:left;
+	margin-bottom:10%;
+	margin-top:4%;
+	width:40%;
+}
+
+.mysegp{
+	float:left;
+	margin-bottom:10%;
+	margin-top:10%;
+	width:40%;	
+}
+
+.mysegimg{
+	float:left;
+	margin-bottom:10%;
+	margin-top:4%;
+	margin-right:10%;
+	width:40%;
+}
+
+.mycolor{
+	color:#5a5a5a;	
+}
+
+.myimg{
+	border-radius: 50%;
+	width:100%;
+	height:100%;	
+}
+
+.mytab{
+	
+}
+
+#allpart{
+	float:left;
+	position:relative;
+	width:100%;
+}
+
+#leftpart{
+	position:relative;
+	float:left;	
+	width:18%;
+	height:auto;
+	margin-right:20px;
+	margin-top:5.3%;
+}
+
+
+
+#rightpart{
+	position:relative;
+	float:left;
+	width:75.5%;
+	height:auto;
+	margin-top:5.3%;
+}
+
+/**Pagination BootsTrap**/
+
+.pagination {
+  padding-left:20%;
+  
+  margin-bottom:20px;
+}
+
+.pagination ul {
+  display: inline-block;
+  *display: inline;
+  margin-bottom: 0;
+  margin-left: 0;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  *zoom: 1;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.pagination ul > li {
+  display: inline;
+}
+
+.pagination ul > li > a,
+.pagination ul > li > span {
+  float: left;
+  padding: 4px 12px;
+  line-height: 20px;
+  text-decoration: none;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-left-width: 0;
+}
+
+.pagination ul > li > a:hover,
+.pagination ul > li > a:focus,
+.pagination ul > .active > a,
+.pagination ul > .active > span {
+  background-color: #f5f5f5;
+}
+
+.pagination ul > .active > a,
+.pagination ul > .active > span {
+  color: #999999;
+  cursor: default;
+}
+
+.pagination ul > .disabled > span,
+.pagination ul > .disabled > a,
+.pagination ul > .disabled > a:hover,
+.pagination ul > .disabled > a:focus {
+  color: #999999;
+  cursor: default;
+  background-color: transparent;
+}
+
+.pagination ul > li:first-child > a,
+.pagination ul > li:first-child > span {
+  border-left-width: 1px;
+  -webkit-border-bottom-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+  -webkit-border-top-left-radius: 4px;
+          border-top-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -moz-border-radius-topleft: 4px;
+}
+
+.pagination ul > li:last-child > a,
+.pagination ul > li:last-child > span {
+  -webkit-border-top-right-radius: 4px;
+          border-top-right-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -moz-border-radius-bottomright: 4px;
+}
+
+.pagination-centered {
+  text-align: center;
+}
+
+.pagination-right {
+  text-align: right;
+}
+
+/**Pagination **/
+
+
+/* Buy */
+
+.buyseg{
+	margin-top:40%;
+}
+.buypic{
+	float:left;
+	margin-left:20%;
+	width:90px;
+	height:90px;
+}
+
+.buypseg{
+	float:right
+}
+
+.pages{
+	font-family:'B roya',tahoma;
+}
+
+/* Buy */
+
+.ui.blue.button{
+    float:right;
+}

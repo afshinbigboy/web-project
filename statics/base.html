@@ -1,0 +1,153 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/theme.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-3.0.3-dist/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-3.0.3-dist/dist/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="bootstrap-3.0.3-dist/dist/css/bootstrap.css">
+
+    <script src="{% static 'js/jquery-2.0.3.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+    {#<script src="{% static 'bootstrap-3.0.3-dist/dist/js/bootstrap.min.js' %}"></script>#}
+
+
+    <style type="text/css">
+        label {
+            margin-top: 1.5em;
+        }
+
+        .radio_margin {
+            margin-right: 1em;
+            margin-top: 2px;
+            margin-bottom: 5px;
+        }
+
+        body {
+            background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(204, 235, 237, 0.20)), color-stop(1, rgba(0, 255, 239, 0.22)));
+            color: #333;
+            margin-top: 5em;
+        {#            font-family: "b homa";#}
+        }
+
+        footer {
+            margin-top: 5em;
+            font-size: 90%;
+            font-style: italic;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #00ACED;
+        }
+
+        #Nav-Fix {
+            border-bottom: 1px #26c3be solid;
+            box-shadow: 0px 0px 25px 3px rgba(0, 190, 247, 0.62);
+        }
+
+        #description {
+            background-color: #fff;
+            border-radius: 1em;
+            padding: 1em;
+            box-shadow: 0px 0px 10px 3px rgb(78, 200, 193);
+        }
+    </style>
+
+    {% block head %}
+    {% endblock %}
+
+</head>
+<body>
+
+
+<!-- Fixed navbar -->
+<div id="Nav-Fix" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li style="float: right"><a href="/">خانه</a></li>
+                <li style="float: right"><a href="{% url 'add_product' %}">مدیریت فروشنده</a></li>
+                <li><a href="">درباره ما</a></li>
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">محصولات <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header"><a href="{% url 'product_list' %}">درهم</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header"><a href="">فیلم</a></li>
+                        <li class="dropdown-header"><a href="">آهنگ</a></li>
+                        <li class="dropdown-header"><a href="">بازی</a></li>
+                        <li class="dropdown-header"><a href="">برنامه</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-left">
+
+                {% block Nav-Fix %}
+                {% endblock %}
+
+                <li><a href="/"><span style="color: #0088cc">فروشگاه فرهنگی</span></a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</div>
+
+
+<div id="Center-Block" class="center-block">
+    <div id="description" class="container">
+
+
+        {#        <div id="picture">#}
+        {#            <a href="#myModal" role="button" data-toggle="modal">#}
+        {#                <img id="image" src="{% static 'Images/ebrahim.jpg' %}" class="pull-left img-thumbnail" width="300"#}
+        {#                     height="auto"/></a>#}
+        {#        </div>#}
+
+        <div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">Delete Confirmation</h3>
+            </div>
+            <div class="modal-body">
+                <p class="error-text"><i class="icon-warning-sign modal-icon"></i>Are you sure you want to delete the
+                    user?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn btn-danger" data-dismiss="modal">Delete</button>
+            </div>
+        </div>
+
+
+        {% block body %}
+        {% endblock %}
+
+    </div>
+</div>
+<div style="clear: both"></div>
+<footer>
+    <div class="panel-footer">
+        <div class="text-center">
+            <hr/>
+            <p>تمامی حقوق این سایت متعلق به افشین و وحید می باشد.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="{% static 'bootstrap-3.0.3-dist/dist/js/bootstrap.js' %}"></script>
+
+</body>
+</html>

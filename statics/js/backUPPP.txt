@@ -1,0 +1,164 @@
+$(document).ready(function(){
+	
+    // fix the classes
+    $( ".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
+      .removeClass( "ui-corner-all ui-corner-top" )
+      .addClass( "ui-corner-bottom" );
+ 
+    // move the nav to the bottom
+    $( ".tabs-bottom .ui-tabs-nav" ).appendTo( ".tabs-bottom" );
+	
+		
+	var ajaxData1 = {
+	 	
+	}
+
+	var url1 = "http://webproject.roohy.me/ajax/1/89103798/category/list";
+
+	
+ 
+	$.ajax({
+		url: url1,
+		type: 'post',
+		dataType: 'json',
+		data: ajaxData1,
+		success: function(data, status, xhr){
+		    if (data.result == 0){
+		       // Request error
+		    }else {
+				for(var i=0;i<data.categoryList.length;i++){
+					if(typeof data.categoryList[i].parent === "number"){
+						var num = data.categoryList[i].id;
+						var li = document.createElement('li');
+						var a = document.createElement('a');
+						a.className = 'item';
+						a.setAttribute('href',"#tabs-" + num);
+						a.textContent = data.categoryList[i].name;
+						li.appendChild(a);
+						document.getElementById('productsNav').appendChild(li);
+						
+						var div = document.createElement('div');
+						div.id = "tabs-" + num;
+						div.style = "padding-left : 100px";
+						document.getElementById('navtabs').appendChild(div);
+						
+					}
+					
+				}
+				$( ".tabs" ).tabs({
+				  collapsible: true
+				});
+				for(var i=0;i<data.categoryList.length;i++){
+				    if(typeof data.categoryList[i].parent === "number"){
+						createItem(data.categoryList[i].id,data,1);
+					}
+				}
+				
+				
+				function createItem(id,data,page){
+					var ajaxData = {
+						 "category":id,
+						  "search": "",
+						  "page": page,
+						  "pageSize": 10
+					}
+
+					var url = "http://webproject.roohy.me/ajax/1/89103798/product/list";
+
+						$.ajax({
+							url: url,
+							type: 'post',
+							dataType: 'json',
+							data: ajaxData,
+							success: function(data, status, xhr){
+								if (data.result == 0){
+								   // Request error
+								}else {
+										createPagination(id,data);
+										itemsdiv = document.createElement('div');
+										itemsdiv.className = "ui items";
+										itemsdiv.style.paddingleft = "100px";
+										div.appendChild(itemsdiv);
+									for(var j=0;j<data.productList.length;j++){
+										var temp = data.productList[j];
+										
+										var divitem = document.createElement('div');
+										divitem.className = "item";
+										
+										
+										var divimage = document.createElement('div');
+										divimage.className = 'image';
+										
+										var image =  document.createElement('img');
+										image.src = temp.picUrl;
+										
+										var aimage = document.createElement('a');
+										aimage.className = 'like ui corner label';
+										var i = document.createElement('i');
+										i.className = 'like icon';
+										
+										aimage.appendChild(i);
+										divimage.appendChild(image);
+										divimage.appendChild(aimage);
+										//
+										var content = document.createElement('div');
+										content.className = 'content';
+										
+										var divname = document.createElement('div');
+										divname.className = 'name';
+										divname.textContent= temp.name;
+										
+										var acontent = document.createElement('a');
+										acontent.className = 'ui blue button';
+										acontent.textContent = 'اضافه به سبد';
+										 var extra = document.createElement('div');
+										 extra.className = 'extra';
+										 
+										content.appendChild(divname);
+										content.appendChild(acontent);
+										content.appendChild(extra);
+										
+										divitem.appendChild(divimage);
+										divitem.appendChild(content);
+										
+										itemsdiv.appendChild(divitem);
+										var x = "tabs-" + id; 
+										document.getElementById(x).appendChild(itemsdiv);
+									}
+								}
+							}
+							
+						});
+						function createPagination(id,data){
+							  var div = document.createElement('div');
+							  div.className = "pagination";
+							  var ul = document.createElement('ul');
+							  for(var i=0;i<data.pageSize;i++){
+								  var li = document.createElement('li');
+								  var a = document.createElement('a');
+								  var x = i+1;
+								  var temp = "#" + x;
+								  a.setAttribute('href',temp);
+								  a.onclick = function(e){
+									  createItem(id,data,x);
+								  }
+								  a.textContent = x;
+								  li.appendChild(a);
+								  ul.appendChild(li);
+							  }
+							  div.appendChild(ul);
+							  var x = "tabs-" + id; 
+							  document.getElementById(x).appendChild(div);
+						  }
+					
+				}
+				
+				
+		    }
+		},
+		// ...
+	});
+	
+	
+
+});

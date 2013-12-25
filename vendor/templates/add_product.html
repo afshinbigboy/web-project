@@ -1,0 +1,118 @@
+{% extends 'vendor_base.html' %}
+{% load staticfiles %}
+
+
+{% block content_body %}
+    <div class="">
+        <form class="form-horizontal">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend class="text-center"><h1>افزودن محصول</h1></legend>
+
+                <!-- Text input-->
+                <div class="control-group">
+                    <label for="p_name">نام محصول</label>
+
+                    <div class="controls">
+                        <input id="p_name" name="p_name" type="text" placeholder="نام"
+                               class="form-control"
+                               required="">
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="control-group">
+                    <label for="p_price">قیمت محصول</label>
+
+                    <div class="controls">
+                        <input id="p_price" name="p_price" type="text" placeholder="قیمت"
+                               class="form-control"
+                               required="">
+
+                    </div>
+                </div>
+
+                <!-- Select Basic -->
+                <div class="control-group">
+                    <label for="p_type">نوع محصول</label>
+
+                    <div class="controls">
+                        <select id="p_type" name="p_type" class="form-control">
+                            <option>فیلم</option>
+                            <option>برنامه</option>
+                            <option>آهنگ</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Multiple Radios -->
+                <div class="control-group">
+                    <label class="" for="p_state">وضعیت محصول</label>
+
+                    <div class="controls">
+                        <label class="radio_margin" for="p_state-0">
+                            <input type="radio" name="p_state" id="p_state-0" value="?????"
+                                   checked="checked"
+                                   required="required">
+                            موجود
+                        </label>
+                        <label class="radio_margin" for="p_state-1">
+                            <input type="radio" name="p_state" id="p_state-1" value="?? ????"
+                                   required="required">
+                            به زودی
+                        </label>
+                        <label class="radio_margin" for="p_state-2">
+                            <input type="radio" name="p_state" id="p_state-2" value="???????"
+                                   required="required">
+                            ناموجود
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Textarea -->
+                <div class="control-group">
+                    <label for="p_des">توضیح محصول</label>
+
+                    <div class="controls">
+                        <textarea id="p_des" class="form-control" name="p_des"></textarea>
+                    </div>
+                </div>
+
+                <!-- File Button -->
+                <div class="control-group">
+                    <label for="inputImage">بارگذاری عکس محصول</label>
+
+                    <div class="controls">
+                        <input id="inputImage" name="p_g_img" class="input-file" type="file"
+                               name="image" onchange="cropImage()">
+
+                        <div id="cropDetail" class="ui items three">
+                            <script type="text/javascript"
+                                    src="{% static 'js/jquery.imgareaselect.pack.js' %}">
+                            </script>
+
+                            <div class="frame">
+                                <img width="350" id="photo" src="">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Button -->
+                <div class="control-group">
+                    <label for="submit"></label>
+
+                    <div class="controls">
+                        <button id="submit" name="submit" class="btn btn-default">
+                            اضافه کردن محصول
+                        </button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+
+{% endblock %}

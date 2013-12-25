@@ -1,0 +1,458 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>صفحه مشخصات محصول</title>
+    <style>
+        /* Side Menu */
+        #sidebar-wrapper {
+            margin-top: -2em;
+            border-radius: .4em;
+            margin-left: -250px;
+            left: 0;
+            width: 250px;
+            background: rgba(236, 236, 236, 0.93);
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+            z-index: 1000;
+            transition: all 0.4s ease 0s;
+        }
+
+        .sidebar-nav {
+            position: absolute;
+            top: 0;
+            width: 250px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar-nav li {
+            line-height: 40px;
+            text-indent: 20px;
+        }
+
+        .sidebar-nav li a {
+            color: #000;
+            display: block;
+            text-decoration: none;
+        }
+
+        .sidebar-nav li a:hover {
+            color: #0d70ff;
+            background: rgba(177, 229, 224, 0.20);
+            text-decoration: none;
+        }
+
+        .sidebar-nav li a:active,
+        .sidebar-nav li a:focus {
+            text-decoration: none;
+        }
+
+        .sidebar-nav > .sidebar-brand {
+            height: 55px;
+            line-height: 55px;
+            font-size: 18px;
+        }
+
+        .sidebar-nav > .sidebar-brand a {
+            color: #6c6c6c;
+        }
+
+        .sidebar-nav > .sidebar-brand a:hover {
+            color: #f9fbff;
+            background: none;
+        }
+
+        #menu-toggle {
+            top: 0;
+            right: 0;
+            position: fixed;
+            z-index: 1;
+        }
+
+        #sidebar-wrapper.active {
+            left: 250px;
+            width: 250px;
+            transition: all 0.4s ease 0s;
+        }
+
+        .toggle {
+            margin: 5px 5px 0 0;
+        }
+
+    </style>
+
+{#    <link rel="stylesheet" type="text/css" href="{% static 'css/myCSS.css' %}">#}
+    {#    <script src="{% static 'js/myJS3.js' %}"></script>#}
+    {#    <script src="{% static 'js/page3_ajax.js' %}"></script>#}
+{% endblock %}
+
+
+{% block Nav-Fix %}
+    <li class="" style="margin-top: 8px">
+        <button id="menu-t" href="#" class="btn btn-primary">سبد خرید<i class="glyphicon glyphicon-shopping-cart"></i>
+        </button>
+    </li>
+{% endblock %}
+{% block body %}
+
+    <!-- Side Menu For Shopping Card -->
+    <div id="sidebar-wrapper" class="pull-left">
+        <ul class="sidebar-nav">
+            <a id="menu-c" href=""
+               class="btn btn-danger pull-left">بستن<i class="fa fa-times"></i></a>
+            <li class="sidebar-brand"><a href=""><strong>سبد خرید شما</strong></a></li>
+            <li>
+                <div style="clear: both; border: 2px solid #fff; border-radius: 1em"></div>
+            </li>
+            <li><a href=""><span class="pull-left" style="margin-left: 1em">1200 تومان</span>محصول 1</a></li>
+            <li><a href=""><span class="pull-left" style="margin-left: 1em">1200 تومان</span>محصول 1</a></li>
+            <li><a href=""><span class="pull-left" style="margin-left: 1em">1200 تومان</span>محصول 1</a></li>
+            <li><a href=""><span class="pull-left" style="margin-left: 1em">1200 تومان</span>محصول 1</a></li>
+            <li><a href=""><span class="pull-left" style="margin-left: 1em">1200 تومان</span>محصول 1</a></li>
+            <li>
+                <div style="border-radius:1em; margin:0 .5em; clear: both; border: 1px solid #999"></div>
+            </li>
+            <li><strong><span class="pull-left" style="margin-left: 1em">6000 تومان</span>مجموع خرید شما</strong></li>
+        </ul>
+
+    </div>
+    <!-- /Side Menu For Shopping Card -->
+
+    <!-- Custom JavaScript for the Side Menu Side Menu For Shopping Card and Smooth Scrolling -->
+    <script>
+        $("#menu-c").click(function (e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
+    </script>
+    <script>
+        $("#menu-t").click(function (e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
+    </script>
+
+
+    <div class="col-lg-8">
+        <div class="col-lg">
+            <h2 id="nav-tabs">درباره محصول</h2>
+
+            <div class="bs-example">
+                <ul class="nav nav-tabs" style="margin-bottom: 15px;">
+                    <li class="active"><a href="#specifications" data-toggle="tab">مشخصات کلی</a></li>
+                    <li class=""><a href="#descriptions" data-toggle="tab">توضیح محصول</a></li>
+                    <li class=""><a href="#pp" data-toggle="tab">نمودار تغییرات قیمت</a></li>
+
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade active in" id="specifications">
+                        <p>
+                            Raw
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="descriptions">
+                        <p>
+                            Food
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="pp">
+                        <p>
+                            kkk
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <button type="button" data-loading-text="Loading..." class="btn btn-primary">
+                Loading state
+            </button>
+        </div>
+    </div>
+
+
+    <div class="col-lg-4">
+
+        <div id="picture">
+            <a href="#myModal" role="button" data-toggle="modal">
+                <img id="image" src="{% static 'Images/ebrahim.jpg' %}" class="img-thumbnail" width="auto"
+                     height="auto"/></a>
+        </div>
+
+        <div style="position: relative" class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">Delete Confirmation</h3>
+            </div>
+            <div class="modal-body">
+                <p class="error-text"><i class="icon-warning-sign modal-icon"></i>Are you sure you want to delete the
+                    user?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn btn-danger" data-dismiss="modal">Delete</button>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div class="row">
+
+            <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail">
+                    <img src="" data-src="holder.js/100%x180" alt="image 1">
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail">
+                    <img src="" data-src="holder.js/100%x180" alt="image 2">
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail">
+                    <img src="" data-src="holder.js/100%x180" alt="image 3">
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail">
+                    <img src="" data-src="holder.js/100%x180" alt="image 4">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div style="clear: both">
+        <div style="margin:2em 0.7em ;border-radius: 1em; border:3px solid #00ACED;"></div>
+    </div>
+
+    <div class="container">
+        <div class="header item">
+            <p>
+
+            <h3>محصولات مرتبط</h3></p>
+        </div>
+    </div>
+
+    <div class="row text-center">
+
+
+        <div class="col-lg-2 col-md-6 hero-feature">
+            <div class="thumbnail">
+
+                <img src="http://placehold.it/800x500" alt="">
+
+                <div class="caption">
+                    <h4>محصول خوب</h4>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 hero-feature">
+            <div class="thumbnail">
+                <img src="http://placehold.it/800x500" alt="">
+
+                <div class="caption">
+                    <h4>محصول خوب</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 hero-feature">
+            <div class="thumbnail">
+                <img src="http://placehold.it/800x500" alt="">
+
+                <div class="caption">
+                    <h4>محصول خوب</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 hero-feature">
+            <div class="thumbnail">
+                <img src="http://placehold.it/800x500" alt="">
+
+                <div class="caption">
+                    <h4>محصول خوب</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 hero-feature">
+            <div class="thumbnail">
+                <img src="http://placehold.it/800x500" alt="">
+
+                <div class="caption">
+                    <h4>محصول خوب</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 hero-feature">
+            <div class="thumbnail">
+                <img src="http://placehold.it/800x500" alt="">
+
+                <div class="caption">
+                    <h4>محصول خوب</h4>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div style="clear: both">
+        <div style="margin:2em 0.7em ;border-radius: 1em; border:3px solid #00ed04;"></div>
+    </div>
+
+    <div class="form-group col-lg-12">
+
+        <div class="col-lg-8">
+            <label for="commentBox"><h4>
+                افزودن نظر
+            </h4></label>
+            <input class="input-group form-control" style="margin-bottom:2px "
+                   placeholder="نام خود را در این قسمت وارد کنید"/>
+            <textarea id="commentBox" class="form-control" rows="5"
+                      placeholder="نظر خود را در این قسمت وارد کنید..."></textarea>
+        </div>
+        <div class="col-lg-4">
+            <label><h4>
+                امتیاز دهید
+            </h4></label>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="well">
+
+        <div style="margin: 2em">
+            <div class="row">
+                <div style="border-radius:1em; border: 2px #aaa solid; margin: 3em 0"></div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+
+                    <strong>افشین</strong>
+
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+
+                    <span class="pull-left">10 days ago</span>
+
+                    <br/><br/>
+
+                    <p>
+                        بسیار محصول خوبی است.
+                    </p>
+                </div>
+            </div>
+
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <strong>افشین</strong>
+
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+
+                    <span class="pull-left">10 days ago</span>
+
+                    <br/><br/>
+
+                    <p>
+                        بسیار محصول خوبی است.
+                    </p>
+                </div>
+            </div>
+
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <strong>افشین</strong>
+
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+
+                    <span class="pull-left">10 days ago</span>
+
+                    <br/><br/>
+
+                    <p>
+                        بسیار محصول خوبی است.
+                    </p>
+                </div>
+            </div>
+
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <strong>افشین</strong>
+
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+
+                    <span class="pull-left">10 days ago</span>
+
+                    <br/><br/>
+
+                    <p>
+                        بسیار محصول خوبی است.
+                    </p>
+                </div>
+            </div>
+
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <strong>افشین</strong>
+
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+
+                    <span class="pull-left">10 days ago</span>
+
+                    <br/><br/>
+
+                    <p>
+                        بسیار محصول خوبی است.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

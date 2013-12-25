@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+{#    <link rel="stylesheet" type="text/css" href="{% static 'css/myCSS.css' %}" xmlns="http://www.w3.org/1999/html">#}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/imgareaselect-animated.css' %}">
+    <script src="{% static 'js/jquery.form.js' %}"></script>
+    <script src="{% static 'js/myJQuery4.js' %}"></script>
+    <script src="{% static 'js/myJS4.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    <div style="width: 45%; min-width:270px; float: right; margin-top:3em; margin-right: -50px; min-width: 300px;">
+        <div class="center-block text-center"
+             style="height: 600px; width: 200px; border: 0px red solid">
+            <div class="sidebar-nav">
+                        <span class="nav-header"><i
+                                class="icon-briefcase"></i>محصولات</span>
+                <ul id="p-menu" class="nav nav-list" style="padding: 0">
+                    <li><a href="{% url 'add_product' %}">اضافه کردن محصول جدید</a></li>
+                    <li><a href="{% url 'edit_product' %}">ویرایش محصولات</a></li>
+                </ul>
+
+                        <span class="nav-header"><i
+                                class="icon-briefcase"></i>تراکنش ها</span>
+                <ul id="e-menu" class="nav nav-list" style="padding: 0">
+                    <li><a href="">مشاهده تراکنش ها</a></li>
+                    <li><a href="">ویرایش تراکنش ها</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div style=" float: right">
+        <div class="" style="float: right; margin-right: 1em; margin-top: 2em; border: solid 0px deepskyblue">
+            {% block content_body %}
+            {% endblock %}
+        </div>
+    </div>
+    <div class="clearBoth"></div>
+
+    <script>cropImage()</script>
+    <div id="dCat"></div>
+{% endblock %}
